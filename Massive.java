@@ -1,69 +1,95 @@
+package massive;
+
 public class Massive {
-	
 	public static void main(String[] args) {
-	  
-		method1();
-		method2();
-	   	method3();
-		method4();
+        int a;
+        int b;
 	}
+	
+	// 1 Max value
+	public int arrMaxValue ()
+    {
+	  int mas[] = {1, 5, 7, 4, 6, 9, 0, 2};
+      int a = mas[0];
+	  for (int i = 0; i<mas.length; i++)
+	  {
+		  if (mas[i]>a) {a = mas[i];};
+	  }
+	  return a;
+    };
+    
+    // 2 Array sorting
+    public int[] arrSorting ()
+    {
+      int a;
+	  boolean b = false;
+      int mas[] = {1, 5, 7, 4, 6, 9, 0, 2};
+	  
+	  while (b == false) {
+	    int j = 0;
+		for (int i = 0; i<mas.length-1; i++)
+	    {
+	       if (mas[i]>mas[i+1])
+		   {
+			 a = mas[i+1];
+			 mas[i+1]=mas[i];
+		     mas[i] = a;
+		     j++;
+		   }
+	    } 
+	    if (j == 0) {b = true;}
+	  }
+	  
+	 return mas;
+    };
+ 
+    // 3 Reverse order
+    public int[] reverseOrder ()
+    {
+      int mas[] = {1, 5, 7, 4, 6, 9, 0, 2};
+      int a, j, l;
+      j = mas.length-1;
+      if (mas.length%2 == 0) {l = mas.length/2;} else {l = mas.length%2 + 1;}
+	  for (int i = 0; i<l; i++)
+	    {
+	       a = mas[i];
+	       mas[i] = mas[j];
+	       mas[j] = a;
+	       j--;
+	    
+	    }
 
-	// Task 1.1
-	public static void method1()
-	{
-		int mas[] = {1,3,5};
-		try {
-		for (int i=0; i<=mas.length; i++)
-		{
-			mas[i]++;
-		}  } catch (ArrayIndexOutOfBoundsException ob1)
-		   {System.out.println("Method 1: error - array index is out of bounds.");};
-	
-		}
-	
-	// Task 1.2
-	public static void method2()
-	{
-		int mas[] = {1,3,5};
-		try {
-		for (int i=0; i<=mas.length; i++)
-		{
-			mas[i]++;
-			if (i == mas.length-1) {mas[i] = mas[i] / 0;}
-		}  } catch (ArrayIndexOutOfBoundsException ob1)
-		   {System.out.println("Method 2: error - array index is out of bounds.");}
-		     catch (ArithmeticException ob1)
-		   {System.out.println("Method 2: error - division by zero.");}
-	
-		}
-	
-	// Task 1.3
-	public static void method3()
-	{
-		int mas[] = {1,3,5};
-		try {
-		for (int i=0; i<=mas.length; i++)
-		{
-			mas[i]++;
-		    if (i == mas.length-1) {mas[i] = mas[i] / 0;}
-		}  } catch (ArrayIndexOutOfBoundsException | ArithmeticException ob1)
-		   {System.out.print("Method 3: error - ");
-		    String s = ob1.getMessage();
-		    if (s.equals("/ by zero")) {System.out.println("division by zero.");}
-		    else {System.out.println("array index is out of bounds.");}
-		   } 
-	} 
-
-	//Task 1.4
-	public static void method4()
-	{
-		int mas[] = {1,3,5};
-		try {
-		for (int i=0; i<=mas.length; i++)
-		{
-			mas[i]++;
-		}  } catch (ArrayIndexOutOfBoundsException ob1)
-		   {System.out.println("Method 4: error - array index is out of bounds.");}
-	         finally{System.out.println("Hello!");};
-		}
+	 return mas;
+    };
+    
+    // 4 Calculator
+    public double calculator (int a, int b, String act)
+    {
+    	double result = 0;
+    	if (act == "/")  {result = a / b;} else
+        if (act == "*") {result = a * b;} else
+        if (act == "+") {result = a + b;} else
+        if (act == "-") {result = a - b;}
+    	
+    	return result;
+    }
+    
+    /* 5 Tic-tac-toe
+    public static int ticTacToe(int a)
+    {
+    	int f = 0;
+    	//int a = a;
+    	String mas[] = {};
+    	mas[a] = "x";
+    	int s = 0;
+    	for (int i = 0; i < 9; i++) {
+    		if ((mas[i]!="x") && (mas[i]!="o") && (s == 0)) {mas[i] = "o"; s = 1;} else
+    	    if ((mas[i]!="x") && (mas[i]!="o")) {mas[i] = "x"; s = 0;}
+    	    if ((i == 2) | (i == 5)) {System.out.println(mas[i]);} else
+    	    {System.out.print(mas[i] + " ");}
+    	}
+ 
+    	return f;
+        } */
+    
 }
