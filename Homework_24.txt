@@ -1,0 +1,26 @@
+1. SELECT * FROM Categories
+2. SELECT CategoryID, CategoryName FROM Categories
+3. SELECT Address FROM Suppliers
+4. SELECT * FROM Products ORDER BY Price DESC
+5. SELECT * FROM Orders ORDER BY CustomerID, ShipperID
+6. SELECT * FROM Products WHERE Price > 40 ORDER BY ProductName DESC
+7. SELECT * FROM Products WHERE Price BETWEEN 20 AND 50 ORDER BY Unit
+* Сортировка по Юниту в данном случае неккорректна, т.к. вес указан
+в граммах, килограммах, миллилитрах и т.д.
+8. SELECT * FROM Products WHERE Price (Between 20 AND 100) OR CategoryID = 6
+9.1 SELECT * FROM Products WHERE Price IN (46,53,55)
+9.2 SELECT * FROM Products WHERE Price = 46 OR PRICE = 53 OR PRICE = 55
+10. SELECT * FROM Products SELECT * FROM Products WHERE Price <> 46 AND Price <> 53 AND Price <> 55
+11. SELECT * FROM Products WHERE ProductName LIKE '%han%'
+12. INSERT INTO Shippers (ShipperID, ShipperName, Phone) VALUES (5, 'Pavel', '(375) 296-444646')
+* INSERT INTO Shippers VALUES (5, 'Pavel', '(375) 296-444646') - не работает на w3schools.com
+13. INSERT INTO Shippers (ShipperID, ShipperName) VALUES (6, 'Pavel')
+14. INSERT INTO Categories (CategoryID, CategoryName, Description) SELECT ShipperID, ShipperName, Phone FROM Shippers
+* Не работает.
+15. INSERT INTO Categories (CategoryID, CategoryName, Description) SELECT ShipperID, ShipperName, Phone FROM Shippers WHERE ShipperName = 'Speedy Express'
+* Не работает.
+16.DELETE FROM Shippers WHERE ShipperName = 'Speedy Express'
+17. DELETE FROM Products WHERE Price < 50
+18. DELETE FROM Orders
+19. UPDATE Categories SET CategoryName = "Chocolate" WHERE CategoryName = 'Beverages'
+20. UPDATE Products SET Price = 0 Where ProductName = 'Chais'
